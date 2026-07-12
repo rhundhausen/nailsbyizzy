@@ -1,10 +1,9 @@
-{{ $tel := replaceRE "[^0-9+]" "" .Site.Params.phone }}
 <section class="contact" id="contact">
   <h2 class="heading heading--light">let's make your set!</h2>
   <p class="contact__sub">no online store, just message me and we'll sort out the details 💕</p>
   <div class="contact__btns">
     {{ with .Site.Params.phone }}
-    <a class="btn btn--contact" href="tel:{{ $tel }}">
+    <a class="btn btn--contact" href="tel:{{ replaceRE "[^0-9+]" "" . }}">
       <span class="btn__ico" aria-hidden="true">📞</span>
       <span class="btn__lbl">Call or text</span>
       <span class="btn__val">{{ . }}</span>
