@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Site.Title }}{{ with .Site.Params.tagline }} - {{ . }}{{ end }}</title>
+<meta name="description" content="{{ .Site.Params.siteName }} - hand-painted custom press-on nail sets by {{ .Site.Params.artistName }}. {{ .Site.Params.pricingNote }}">
+<meta name="theme-color" content="#FF3D91">
+
+<meta property="og:title" content="{{ .Site.Title }}">
+<meta property="og:description" content="Hand-painted custom press-on nails by {{ .Site.Params.artistName }} 💅">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Site.BaseURL }}">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E">
+
+{{ $css := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

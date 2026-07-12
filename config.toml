@@ -1,0 +1,32 @@
+baseURL = 'https://nailsbyizzy.com'
+title = 'Nails by Izzy'
+enableEmoji = true
+
+# No blog/tags on this site: skip taxonomy + RSS output.
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+# Drop new nail photos into assets/gallery/ and they appear automatically,
+# newest first. Prefix filenames with a number (e.g. 17-name.jpg) to order them.
+
+[params]
+# --- Branding / copy (edit freely) ---
+siteName    = "Nails by Izzy"
+artistName  = "Izzy"
+tagline     = "custom press-ons that hit different 💅"
+heroButton  = "See my nails"
+pricingNote = "Full sets $15, add extra sparkle for $20 ✨"
+
+aboutTitle = "hey, I'm Izzy!"
+aboutText  = "I hand-paint every set myself, one tiny design at a time. Polka dots, flowers, little fruits, whatever you're into, I love making nails that feel like *you*. Message me and let's design your dream set!"
+# aboutPhoto = "izzy.jpg"   # optional: drop a photo in assets/ and uncomment
+
+# --- Contact: PLACEHOLDERS - replace with Izzy's real details ---
+phone     = "555-123-4567"
+email     = "hello@nailsbyizzy.com"
+instagram = "nailsbyizzy"
+
+[params.footer]
+text = "Made with 💖 by Izzy"
+
+[markup.goldmark.renderer]
+unsafe = true

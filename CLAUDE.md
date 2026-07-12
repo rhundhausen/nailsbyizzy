@@ -21,15 +21,16 @@ hugo server          # local dev server with live reload
 hugo --minify        # production build into ./public (what CI runs)
 ```
 
-CI builds with Hugo **extended** (pinned in
-`.github/workflows/deploy-to-cloudflare.yml`). Use the extended edition locally.
+CI builds with Hugo **extended v0.162.1**, pinned in
+`.github/workflows/deploy-to-cloudflare.yml` to match the version the site was
+built and verified against. Use the extended edition locally.
 
-> **Version gotcha (inherited lesson):** CI pins a specific Hugo version. A
-> build can succeed locally on a newer Hugo yet fail in CI if it uses template
-> functions or config keys introduced after the pinned version. Stay within the
-> pinned version's syntax, or bump the pin deliberately before relying on newer
-> features. Deprecation warnings you see locally may not apply to the pinned CI
-> version.
+> **Version gotcha (inherited lesson):** CI is pinned to a specific Hugo
+> version. If you bump it, a build can start failing on config keys or template
+> functions whose behavior changed. This site deliberately avoids the
+> deprecated `languageCode` config key and `.Site.LanguageCode` (the html
+> `lang` is hardcoded to `en` in `baseof.html`), so keep it that way unless you
+> bump Hugo and update accordingly.
 
 ## Architecture
 

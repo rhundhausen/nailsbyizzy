@@ -1,0 +1,15 @@
+<section class="about" id="about">
+  <div class="about__card">
+    {{ with .Site.Params.aboutPhoto }}
+      {{ $photo := resources.Get . }}
+      {{ with $photo }}
+        {{ $p := .Resize "480x webp q85" }}
+        <img class="about__photo" src="{{ $p.RelPermalink }}" alt="{{ $.Site.Params.artistName }}">
+      {{ end }}
+    {{ end }}
+    <div class="about__text">
+      <h2 class="heading">{{ .Site.Params.aboutTitle }}</h2>
+      {{ .Site.Params.aboutText | markdownify }}
+    </div>
+  </div>
+</section>

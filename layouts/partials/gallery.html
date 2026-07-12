@@ -1,0 +1,27 @@
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <h2 class="heading">my nail sets</h2>
+    <p class="section-sub">tap any set to see it bigger ✨</p>
+  </div>
+
+  {{ $images := resources.Match "gallery/*.{jpg,jpeg,png,JPG,PNG}" }}
+  {{ $badges := slice "★" "♥" "✿" "✦" }}
+  <div class="grid">
+    {{ range $i, $img := sort $images "Name" "desc" }}
+      {{/* Caption from filename: strip leading "NN-", hyphens to spaces, title-case */}}
+      {{ $slug := replaceRE "^[0-9]+-" "" (path.BaseName $img.Name) }}
+      {{ $name := $slug | replaceRE "-" " " | title }}
+      {{ $thumb := $img.Resize "560x webp q82" }}
+      {{ $full  := $img.Resize "1100x q88" }}
+      <figure class="card{{ if modBool $i 2 }} card--tiltL{{ else }} card--tiltR{{ end }}">
+        {{ if modBool $i 3 }}<span class="card__badge" aria-hidden="true">{{ index $badges (mod $i 4) }}</span>{{ end }}
+        <button class="card__btn" data-full="{{ $full.RelPermalink }}" data-name="{{ $name }}" aria-label="View {{ $name }} larger">
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy" alt="{{ $name }} nail set">
+        </button>
+        <figcaption class="card__cap">{{ $name }}</figcaption>
+      </figure>
+    {{ end }}
+  </div>
+
+  <p class="pricing">{{ .Site.Params.pricingNote }}</p>
+</section>

@@ -1,0 +1,31 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+.hugo_build.lock
+
+# Build artifacts
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Node.js dependencies (if using npm/yarn for asset pipelines)
+node_modules/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Hugo environment files (if you have any secrets stored here)
+.env
+.env.*
+
+# Other potential caches
+.cache/
+
+# Claude Code local config (per-machine, not tracked)
+.claude/
