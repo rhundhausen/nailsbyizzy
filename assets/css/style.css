@@ -140,6 +140,27 @@ img{max-width:100%;display:block}
 /* ============================================================
    GALLERY
    ============================================================ */
+/* Header strip on the standalone gallery page */
+.page-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:clamp(1.2rem,4vw,2rem) 1.2rem 0;
+}
+.wordmark--sm{font-size:clamp(1.6rem,5vw,2.6rem);text-shadow:var(--shadow-sm)}
+.btn--back{
+  background:var(--sky);
+  color:var(--ink);
+  font-size:1rem;
+  padding:.45rem 1.1rem;
+  box-shadow:var(--shadow-sm);
+}
+.btn--back:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+
 .gallery{max-width:var(--wrap);margin:0 auto;padding:clamp(2.6rem,7vw,4.5rem) 1.2rem 1rem}
 .grid{
   display:grid;
@@ -228,7 +249,18 @@ img{max-width:100%;display:block}
 .about__text{flex:1 1 260px}
 .about__text .heading{margin-bottom:.5rem}
 .about__text p{margin:0;font-size:1.08rem;font-weight:600;color:var(--ink)}
-.about__text em{background:#fff;padding:0 .25em;border-radius:6px;font-style:normal}
+.about__text em{
+  background:var(--yellow);
+  color:var(--pink-deep);
+  font-family:var(--font-display);
+  font-weight:600;
+  padding:0 .3em;
+  border:2px solid var(--ink);
+  border-radius:8px;
+  font-style:normal;
+  display:inline-block;
+  transform:rotate(-2deg);
+}
 
 /* ============================================================
    CONTACT

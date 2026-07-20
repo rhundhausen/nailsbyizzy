@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <header class="page-top" id="top">
+    <a class="btn btn--back" href="{{ "" | relURL }}">← back home</a>
+    <h1 class="wordmark wordmark--sm">{{ .Site.Params.siteName }}</h1>
+  </header>
+  {{ partial "gallery.html" . }}
+  {{ partial "contact.html" . }}
+  {{ partial "footer.html" . }}
+  {{ partial "lightbox.html" . }}
+{{ end }}

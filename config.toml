@@ -12,17 +12,17 @@ disableKinds = ['taxonomy', 'term', 'RSS']
 # --- Branding / copy (edit freely) ---
 siteName    = "Nails by Izzy"
 artistName  = "Izzy"
-tagline     = "custom press-ons that hit different 💅"
+tagline     = "reusable handmade press-ons 💅"
 heroButton  = "See my nails"
-pricingNote = "Full sets $15, add extra sparkle for $20 ✨"
+pricingNote = "All nail sets $8-$15! ✨"
 
 aboutTitle = "hey, I'm Izzy!"
-aboutText  = "I hand-paint every set myself, one tiny design at a time. Polka dots, flowers, little fruits, whatever you're into, I love making nails that feel like *you*. Message me and let's design your dream set!"
+aboutText  = "I hand-paint every set myself, one tiny design at a time. Glitter tips, polka dots, flowers, little fruits, whatever you're into, I love making nails that feel like *you*. Message me and let's design your dream set!"
 # aboutPhoto = "izzy.jpg"   # optional: drop a photo in assets/ and uncomment
 
-# --- Contact: PLACEHOLDERS - replace with Izzy's real details ---
-email     = "hello@nailsbyizzy.com"
-instagram = "nailsbyizzy"
+# --- Contact ---
+email     = "nailsbyizzy@hotmail.com"
+instagram = "_nails_by_izzy"
 
 [params.footer]
 text = "Made with 💖 by Izzy"
