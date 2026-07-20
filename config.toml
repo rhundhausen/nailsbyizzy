@@ -8,6 +8,25 @@ disableKinds = ['taxonomy', 'term', 'RSS']
 # Drop new nail photos into assets/gallery/ and they appear automatically,
 # newest first. Prefix filenames with a number (e.g. 17-name.jpg) to order them.
 
+# --- Nav menu ---
+# Add a page here and it shows up in the nav (and the phone hamburger).
+[[menu.main]]
+  name   = "home"
+  url    = "/"
+  weight = 10
+[[menu.main]]
+  name   = "my nails"
+  url    = "/gallery/"
+  weight = 20
+[[menu.main]]
+  name   = "about"
+  url    = "/#about"
+  weight = 30
+[[menu.main]]
+  name   = "contact"
+  url    = "/#contact"
+  weight = 40
+
 [params]
 # --- Branding / copy (edit freely) ---
 siteName    = "Nails by Izzy"

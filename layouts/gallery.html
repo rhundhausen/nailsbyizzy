@@ -1,8 +1,6 @@
 {{ define "main" }}
-  <header class="page-top" id="top">
-    <a class="btn btn--back" href="{{ "" | relURL }}">← back home</a>
-    <h1 class="wordmark wordmark--sm">{{ .Site.Params.siteName }}</h1>
-  </header>
+  <span id="top"></span>
+  {{ partial "nav.html" . }}
   {{ partial "gallery.html" . }}
   {{ partial "contact.html" . }}
   {{ partial "footer.html" . }}

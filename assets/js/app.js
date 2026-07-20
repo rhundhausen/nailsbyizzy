@@ -2,6 +2,33 @@
 (function () {
   'use strict';
 
+  /* ---------- Hamburger nav (phones) ---------- */
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('navBurger');
+  if (nav && burger) {
+    function setOpen(open) {
+      nav.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    /* Tapping a link (including an on-page anchor) closes the menu */
+    nav.querySelectorAll('.nav__link').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        setOpen(false);
+        burger.focus();
+      }
+    });
+    /* Leaving phone width: drop the open state so desktop nav is clean */
+    window.matchMedia('(min-width:701px)').addEventListener('change', function (e) {
+      if (e.matches) { setOpen(false); }
+    });
+  }
+
   /* ---------- Gallery lightbox ---------- */
   var lb = document.getElementById('lightbox');
   if (lb) {
