@@ -1,9 +1,11 @@
 # Nails by Izzy
 
-A cute single-page Hugo site showcasing Izzy's hand-painted press-on nail sets,
+A cute little Hugo site showcasing Izzy's hand-painted press-on nail sets,
 deployed to Cloudflare Pages at [nailsbyizzy.com](https://nailsbyizzy.com).
 
-Not a shop: visitors browse the gallery and order by phone, email, or Instagram.
+Two pages: the home page and the nail gallery at `/gallery/`.
+
+Not a shop: visitors browse the gallery and order by email or Instagram.
 
 ## Run it locally
 
@@ -25,11 +27,15 @@ order, hyphens become spaces, and it is title-cased.
 
 ## Edit the text
 
-All copy (tagline, pricing, about, phone, email, Instagram) lives in
-`config.toml` under `[params]`. No template editing needed.
+All copy (tagline, pricing, about, email, Instagram) lives in `config.toml`
+under `[params]`. No template editing needed.
 
-> The phone, email, and Instagram in `config.toml` are **placeholders**.
-> Replace them with Izzy's real details.
+## Add a page
+
+1. Create `content/<name>.md` with `layout: "<name>"`, plus a matching
+   `layouts/<name>.html` (copy `layouts/gallery.html`).
+2. Add a `[[menu.main]]` entry in `config.toml`. It shows up in the nav and in
+   the phone hamburger menu automatically.
 
 ## Deploy
 

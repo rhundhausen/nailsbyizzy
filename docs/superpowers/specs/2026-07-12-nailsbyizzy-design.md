@@ -157,6 +157,29 @@ site-deploy job is present.
 - Pushing to `main` triggers the workflow and deploys to Cloudflare Pages
   (after the owner completes the one-time setup).
 
+## Amendments
+
+### 2026-07-20 - Gallery moved to its own page, nav added
+
+The original "single scrolling page" structure changed at Izzy's request. The
+rest of the spec still holds.
+
+- The site is now two pages. Home (`/`) is hero, about, contact, footer. The
+  gallery moved to `/gallery/` (`content/gallery.md` + `layouts/gallery.html`),
+  which carries the grid, the pricing note, contact, and the lightbox.
+- The hero "See my nails" button links to `/gallery/` instead of
+  smooth-scrolling to a `#gallery` anchor.
+- A sticky nav (`layouts/partials/nav.html`) appears on both pages, driven by
+  `[[menu.main]]` in `config.toml`. On phones (max-width 700px) it collapses to
+  a hamburger toggled by `app.js`. This anticipates more pages later, so the
+  "single page" framing above no longer applies.
+- Copy and contact updates: tagline is "reusable handmade press-ons", pricing
+  is a single "All nail sets $8-$15!" note, and the about blurb highlights the
+  emphasized word in a yellow sticker chip (`.about__text em`).
+- Contact details are real now, not placeholders: `nailsbyizzy@hotmail.com` and
+  `@_nails_by_izzy`. There is no `phone` param set; `contact.html` still
+  renders a Call button `{{ with }}` one is provided.
+
 ## Open Design Decisions (mockups for user)
 
 To be presented as visual mockups before/while building:
