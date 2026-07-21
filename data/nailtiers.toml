@@ -1,0 +1,23 @@
+# Difficulty tier for each nail set, keyed by the source filename (no extension).
+# Tier 1 = simple (solid colors, single motif), Tier 2 = medium (stripes,
+# french tips, dot-and-stripe mixes), Tier 3 = detailed hand-painted art.
+# The gallery shows a matching "Tier N" badge on each photo. A photo with no
+# entry here just shows no badge, so you can still drop in a new design without
+# editing this file. Prices per tier live in [params.tiers] in config.toml.
+
+"01-making-waves"  = 2
+"02-polka-party"   = 1
+"03-true-blue"     = 1
+"04-classic-french" = 2
+"05-bubblegum"     = 1
+"06-beach-day"     = 3
+"07-flower-power"  = 3
+"08-cotton-candy"  = 3
+"09-back-to-school" = 3
+"10-tide-pool"     = 3
+"11-merry-bright"  = 3
+"12-spring-fling"  = 2
+"13-cocoa"         = 2
+"14-sweet-plaid"   = 3
+"15-busy-bee"      = 2
+"16-peachy-keen"   = 1

@@ -1,20 +1,28 @@
 <section class="gallery" id="gallery">
   <div class="section-head">
     <h2 class="heading">my nail sets</h2>
+    {{ with .Site.Params.galleryIntro }}<div class="section-intro">{{ . | markdownify }}</div>{{ end }}
+    <ul class="tierkey" aria-label="Tier prices">
+      <li class="tierkey__item tierkey__item--t1"><b>Tier 1</b> {{ .Site.Params.tiers.one }}</li>
+      <li class="tierkey__item tierkey__item--t2"><b>Tier 2</b> {{ .Site.Params.tiers.two }}</li>
+      <li class="tierkey__item tierkey__item--t3"><b>Tier 3</b> {{ .Site.Params.tiers.three }}</li>
+    </ul>
     <p class="section-sub">tap any set to see it bigger ✨</p>
   </div>
 
   {{ $images := resources.Match "gallery/*.{jpg,jpeg,png,JPG,PNG}" }}
-  {{ $badges := slice "★" "♥" "✿" "✦" }}
   <div class="grid">
     {{ range $i, $img := sort $images "Name" "desc" }}
       {{/* Caption from filename: strip leading "NN-", hyphens to spaces, title-case */}}
-      {{ $slug := replaceRE "^[0-9]+-" "" (path.BaseName $img.Name) }}
+      {{ $base := path.BaseName $img.Name }}
+      {{ $slug := replaceRE "^[0-9]+-" "" $base }}
       {{ $name := $slug | replaceRE "-" " " | title }}
+      {{/* Difficulty tier from data/nailtiers.toml (keyed by filename, no ext) */}}
+      {{ $tier := index hugo.Data.nailtiers $base }}
       {{ $thumb := $img.Resize "560x webp q82" }}
       {{ $full  := $img.Resize "1100x q88" }}
       <figure class="card{{ if modBool $i 2 }} card--tiltL{{ else }} card--tiltR{{ end }}">
-        {{ if modBool $i 3 }}<span class="card__badge" aria-hidden="true">{{ index $badges (mod $i 4) }}</span>{{ end }}
+        {{ with $tier }}<span class="card__tier card__tier--t{{ . }}">Tier {{ . }}</span>{{ end }}
         <button class="card__btn" data-full="{{ $full.RelPermalink }}" data-name="{{ $name }}" aria-label="View {{ $name }} larger">
           <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy" alt="{{ $name }} nail set">
         </button>

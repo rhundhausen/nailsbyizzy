@@ -1,0 +1,28 @@
+<section class="order" id="order">
+  <div class="section-head">
+    <h2 class="heading">how to order 💅</h2>
+    <p class="section-sub">from picking a set to opening your package</p>
+  </div>
+
+  {{ with .Site.Params.orderSteps }}
+  <ol class="steps">
+    {{ range $i, $s := . }}
+      <li class="step{{ if modBool $i 2 }} step--tiltL{{ else }} step--tiltR{{ end }}">
+        <span class="step__num">{{ add $i 1 }}</span>
+        <span class="step__ico" aria-hidden="true">{{ $s.icon }}</span>
+        <p class="step__text">{{ $s.text }}</p>
+      </li>
+    {{ end }}
+  </ol>
+  {{ end }}
+
+  {{ with .Site.Params.form.url }}
+  <div class="orderform">
+    <h3 class="orderform__title">ready? fill out the form 👇</h3>
+    <div class="orderform__frame">
+      <iframe src="{{ . }}?embedded=true" title="Nail order form" loading="lazy">Loading the form…</iframe>
+    </div>
+    <p class="orderform__fallback">Form not showing? <a href="{{ . }}" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+  </div>
+  {{ end }}
+</section>

@@ -84,4 +84,64 @@
       deco.appendChild(s);
     }
   }
+
+  /* ---------- About Me carousel ---------- */
+  var carousel = document.getElementById('carousel');
+  if (carousel) {
+    var slides = carousel.querySelectorAll('.carousel__slide');
+    var dots = carousel.querySelectorAll('.carousel__dot');
+    var idx = 0;
+    function showSlide(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) {
+        var active = i === idx;
+        s.classList.toggle('is-active', active);
+        if (active) { s.removeAttribute('aria-hidden'); }
+        else { s.setAttribute('aria-hidden', 'true'); }
+      });
+      dots.forEach(function (d, i) {
+        var active = i === idx;
+        d.classList.toggle('is-active', active);
+        if (active) { d.setAttribute('aria-selected', 'true'); }
+        else { d.removeAttribute('aria-selected'); }
+      });
+    }
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+    if (prevBtn) { prevBtn.addEventListener('click', function () { showSlide(idx - 1); }); }
+    if (nextBtn) { nextBtn.addEventListener('click', function () { showSlide(idx + 1); }); }
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () {
+        showSlide(parseInt(d.getAttribute('data-index'), 10));
+      });
+    });
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { showSlide(idx - 1); }
+      else if (e.key === 'ArrowRight') { showSlide(idx + 1); }
+    });
+  }
+
+  /* ---------- "How to order" floating popup (my-nails page) ---------- */
+  var pop = document.getElementById('orderPop');
+  if (pop) {
+    var POP_KEY = 'orderPopDismissed';
+    var popDismissed = false;
+    try { popDismissed = sessionStorage.getItem(POP_KEY) === '1'; } catch (e) {}
+    var popX = document.getElementById('orderPopX');
+    function showPop() {
+      if (popDismissed || !pop.hidden) { return; }
+      pop.hidden = false;
+      requestAnimationFrame(function () { pop.classList.add('is-visible'); });
+    }
+    function hidePop() {
+      popDismissed = true;
+      pop.classList.remove('is-visible');
+      try { sessionStorage.setItem(POP_KEY, '1'); } catch (e) {}
+      setTimeout(function () { pop.hidden = true; }, 400);
+    }
+    if (popX) { popX.addEventListener('click', hidePop); }
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) { showPop(); }
+    }, { passive: true });
+  }
 })();

@@ -1,0 +1,41 @@
+<section class="aboutme" id="about">
+  <div class="section-head">
+    <h2 class="heading">{{ .Site.Params.aboutMeTitle }}</h2>
+  </div>
+
+  <div class="aboutme__card">
+    {{ $photos := sort (resources.Match "about/*.{jpg,jpeg,png,JPG,JPEG,PNG}") "Name" "asc" }}
+    {{ with $photos }}
+    <div class="carousel" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Photos of Izzy">
+      <div class="carousel__track">
+        {{ range $i, $img := . }}
+          {{ $p := $img.Resize "900x webp q82" }}
+          <figure class="carousel__slide{{ if eq $i 0 }} is-active{{ end }}"
+                  role="group" aria-roledescription="slide"
+                  aria-label="Photo {{ add $i 1 }} of {{ len $photos }}"
+                  {{ if ne $i 0 }}aria-hidden="true"{{ end }}>
+            <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}"
+                 alt="Izzy, photo {{ add $i 1 }}"{{ if ne $i 0 }} loading="lazy"{{ end }}>
+          </figure>
+        {{ end }}
+      </div>
+
+      {{ if gt (len $photos) 1 }}
+      <button class="carousel__nav carousel__nav--prev" id="carouselPrev" type="button" aria-label="Previous photo">‹</button>
+      <button class="carousel__nav carousel__nav--next" id="carouselNext" type="button" aria-label="Next photo">›</button>
+      <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Choose photo">
+        {{ range $i, $img := . }}
+          <button class="carousel__dot{{ if eq $i 0 }} is-active{{ end }}" type="button" role="tab"
+                  aria-label="Photo {{ add $i 1 }}"{{ if eq $i 0 }} aria-selected="true"{{ end }}
+                  data-index="{{ $i }}"></button>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="aboutme__text">
+      {{ .Site.Params.aboutMeText | markdownify }}
+    </div>
+  </div>
+</section>

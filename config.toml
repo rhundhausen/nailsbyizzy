@@ -20,12 +20,16 @@ disableKinds = ['taxonomy', 'term', 'RSS']
   weight = 20
 [[menu.main]]
   name   = "about"
-  url    = "/#about"
+  url    = "/about/"
   weight = 30
+[[menu.main]]
+  name   = "order"
+  url    = "/order/"
+  weight = 40
 [[menu.main]]
   name   = "contact"
   url    = "/#contact"
-  weight = 40
+  weight = 50
 
 [params]
 # --- Branding / copy (edit freely) ---
@@ -39,12 +43,47 @@ aboutTitle = "hey, I'm Izzy!"
 aboutText  = "I hand-paint every set myself, one tiny design at a time. Glitter tips, polka dots, flowers, little fruits, whatever you're into, I love making nails that feel like *you*. Message me and let's design your dream set!"
 # aboutPhoto = "izzy.jpg"   # optional: drop a photo in assets/ and uncomment
 
+# --- About Me page (/about/) ---
+# Photos for the click-through carousel live in assets/about/ (sorted by name).
+aboutMeTitle = "hi, I'm Izzy!"
+aboutMeText  = "Hi, I'm Izzy! I'm a 13 year old girl who has a passion for making nails. When I'm not biking or making videos, I love to create press-ons!"
+
+# --- My nails page (/gallery/) ---
+galleryIntro = "These are some of the nails I have made! I price them in 3 tiers by how detailed they are. Not sure what you want? Pick one of the ready-made sets below and get **$5 off**!"
+
 # --- Contact ---
 email     = "nailsbyizzy@hotmail.com"
 instagram = "_nails_by_izzy"
 
 [params.footer]
 text = "Made with 💖 by Izzy"
+
+# --- Tier prices (shown on the my-nails page) ---
+[params.tiers]
+one       = "$10"
+two       = "$15"
+three     = "$20"
+bundleOff = "$5"
+
+# --- Order page (/order/) ---
+[params.form]
+# Google Form embed. The public share link ends in /viewform; embedding just
+# adds ?embedded=true. (The raw /formResponse URL is the POST endpoint only.)
+url = "https://docs.google.com/forms/d/e/1FAIpQLSee6nn9Mrrn1FDQv-a4aztJwpnX26Ppnl-ECZw572yQpVr3nA/viewform"
+
+# How ordering works: numbered steps on the order page.
+[[params.orderSteps]]
+icon = "📝"
+text = "You find my page and fill out the Google form below."
+[[params.orderSteps]]
+icon = "💬"
+text = "We chat about the finishing details and your custom sizing."
+[[params.orderSteps]]
+icon = "🎨"
+text = "You relax and wait while I make your custom set in 3 to 7 days!"
+[[params.orderSteps]]
+icon = "📦"
+text = "I ship your package out to you. Enjoy!"
 
 [markup.goldmark.renderer]
 unsafe = true
