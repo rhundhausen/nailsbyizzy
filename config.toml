@@ -49,7 +49,7 @@ aboutMeTitle = "hi, I'm Izzy!"
 aboutMeText  = "Hi, I'm Izzy! I'm a 13 year old girl who has a passion for making nails. When I'm not biking or making videos, I love to create press-ons!"
 
 # --- My nails page (/gallery/) ---
-galleryIntro = "These are some of the nails I have made! I price them in 3 tiers by how detailed they are. Not sure what you want? Pick one of the ready-made sets below and get **$5 off**!"
+galleryIntro = "These are some of the nails I have made! I price them in 3 tiers by how detailed they are. Not sure what you want? Pick one of the ready-made sets below and get **$2 off**!"
 
 # --- Contact ---
 email     = "nailsbyizzy@hotmail.com"
@@ -60,10 +60,10 @@ text = "Made with 💖 by Izzy"
 
 # --- Tier prices (shown on the my-nails page) ---
 [params.tiers]
-one       = "$10"
-two       = "$15"
-three     = "$20"
-bundleOff = "$5"
+one       = "$8"
+two       = "$12"
+three     = "$15"
+bundleOff = "$2"
 
 # --- Order page (/order/) ---
 [params.form]
